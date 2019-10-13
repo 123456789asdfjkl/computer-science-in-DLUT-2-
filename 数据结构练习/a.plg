@@ -1,0 +1,30 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: a - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\DELL\AppData\Local\Temp\RSPBDFD.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/a.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\数据结构练习\a.c"
+]
+Creating command line "cl.exe @C:\Users\DELL\AppData\Local\Temp\RSPBDFD.tmp" 
+<h3>Output Window</h3>
+Compiling...
+a.c
+D:\数据结构练习\a.c(25) : error C2065: 'p' : undeclared identifier
+D:\数据结构练习\a.c(25) : warning C4098: 'Creat' : 'void' function returning a value
+D:\数据结构练习\a.c(91) : warning C4244: '=' : conversion from 'int ' to 'float ', possible loss of data
+D:\数据结构练习\a.c(196) : warning C4244: 'function' : conversion from 'float ' to 'int ', possible loss of data
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+a.obj - 1 error(s), 3 warning(s)
+</pre>
+</body>
+</html>
