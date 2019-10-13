@@ -1,0 +1,42 @@
+1:    #include<stdio.h>
+2:    int main()
+3:    {
+00401010   push        ebp
+00401011   mov         ebp,esp
+00401013   sub         esp,5Ch
+00401016   push        ebx
+00401017   push        esi
+00401018   push        edi
+00401019   lea         edi,[ebp-5Ch]
+0040101C   mov         ecx,17h
+00401021   mov         eax,0CCCCCCCCh;以上 寄存器入栈及为寄存器赋地址操作
+00401026   rep stos    dword ptr [edi]
+4:        int b[5];
+5:        int i;
+6:        int *p=b;
+00401028   lea         eax,[ebp-14h]
+0040102B   mov         dword ptr [ebp-1Ch],eax;赋予数组空间及指针指向
+7:        for(i=0;i<5;p++,i++)
+0040102E   mov         dword ptr [ebp-18h],0
+00401035   jmp         main+39h (00401049);无条件跳转到判断操作
+00401037   mov         ecx,dword ptr [ebp-1Ch]
+0040103A   add         ecx,4
+0040103D   mov         dword ptr [ebp-1Ch],ecx;ecx中存放循环至当前对应数组元素的地址
+00401040   mov         edx,dword ptr [ebp-18h]
+00401043   add         edx,1
+00401046   mov         dword ptr [ebp-18h],edx
+00401049   cmp         dword ptr [ebp-18h],5;edx中存放i值用以循环判断
+0040104D   jge         main+4Ah (0040105a);有符号数大于等于跳转
+8:            *p=0;
+0040104F   mov         eax,dword ptr [ebp-1Ch];无条件跳转到判断操作
+00401052   mov         dword ptr [eax],0;为数组元素赋值
+00401058   jmp         main+27h (00401037)
+9:        return 0;
+0040105A   xor         eax,eax;寄存器清零
+10:   }
+0040105C   pop         edi
+0040105D   pop         esi
+0040105E   pop         ebx
+0040105F   mov         esp,ebp
+00401061   pop         ebp;寄存器出栈
+00401062   ret
